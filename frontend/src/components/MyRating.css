@@ -1,0 +1,23 @@
+.my-rating-container {
+  display: flex;
+  gap: 1rem;
+  width: fit-content;
+  margin: auto;
+
+  button.thumbs {
+    width: 1.5rem;
+    height: fit-content;
+    padding: 0;
+    background: transparent;
+    fill: var(--primary);
+    opacity: 0.5;
+
+    &.active {
+      opacity: 1;
+    }
+    &.inactive {
+      opacity: 1;
+      fill: var(--gold);
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.rating-container {
+  display: flex;
+  width: fit-content;
+  margin: auto;
+  align-items: baseline;
+
+  .rating {
+    display: flex;
+    width: 1em;
+    height: fit-content;
+    padding: 0;
+    background: transparent;
+    fill: var(--primary);
+
+    .outline {
+      fill: none;
+      stroke: var(--primary);
+      stroke-width: 50px;
+    }
+  }
+  .n-ratings {
+    padding-left: 2px;
+  }
+}

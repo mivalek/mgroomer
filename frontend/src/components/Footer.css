@@ -1,0 +1,22 @@
+#footer {
+  display: flex;
+  padding: 1rem;
+  background: white;
+  font-size: 0.8rem;
+  justify-content: space-between;
+  align-items: center;
+
+  #copyright-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  #links {
+    #gh {
+      display: flex;
+      width: 2rem;
+      fill: var(--backdrop);
+    }
+  }
+}

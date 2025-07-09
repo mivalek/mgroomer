@@ -1,0 +1,16 @@
+services:
+  file-server:
+    tty: true
+    restart: always
+    image: mgroomer-file-server
+    container_name: mgroomer-file-server
+    build:
+      context: .
+      network: host
+    ports:
+      - 8800:8800
+    networks:
+      - app-network
+    volumes:
+      - /mnt/media:/media # raspi
+      # - ..\media:/media # windows

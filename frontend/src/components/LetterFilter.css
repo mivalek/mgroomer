@@ -1,0 +1,83 @@
+#letter-filter {
+  .wide {
+    display: none;
+  }
+
+  .narrow {
+    display: block;
+    select {
+      appearance: none;
+      font-size: 2rem;
+      font-family: inherit;
+      font-weight: lighter;
+      text-align: center;
+      border-radius: 100%;
+      border: none;
+      background: var(--primary);
+      color: white;
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+
+      option {
+        background: white;
+        font-size: 1rem;
+        border: none;
+        border-radius: 0;
+        box-shadow: 0 0 5px #ccc;
+        color: black;
+      }
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  #letter-filter {
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    .wide {
+      display: flex !important;
+      justify-content: space-between;
+    }
+
+    .narrow {
+      display: none !important;
+    }
+  }
+  .letter {
+    width: 100%;
+    background: transparent;
+    color: var(--primary);
+    font-weight: 400;
+    text-transform: uppercase;
+    position: relative;
+
+    &.active {
+      background: white;
+      box-shadow: 0 0 5px 0px #666;
+    }
+    &:hover {
+      background: #00000018;
+    }
+    &:not(.active):has(:focus) {
+      outline: solid 2px;
+      outline-offset: -2px;
+    }
+    label {
+      display: block;
+      width: 100%;
+    }
+    input {
+      position: absolute;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

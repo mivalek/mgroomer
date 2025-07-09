@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300;400&display=swap");
+
+:root {
+  --backdrop: #3f5067;
+  --gold: #e2ddc7;
+  --primary: #335d92;
+  --red: #b72c2c;
+  --green: #2b972b;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  margin: 0;
+  background: var(--backdrop);
+
+  &.noscroll {
+    overflow: hidden;
+  }
+}
+
+input {
+	font-family: Poppins,sans-serif;
+	border: solid 1px #888;
+	padding: .25rem .5rem;
+	background: white;
+	max-width: 12rem;
+	border-radius: 2px;
+}
+
+section {
+  padding-inline: 1rem;
+}
+a {
+  margin-right: 1rem;
+}
+
+main {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 750px;
+  min-width: 360px;
+  min-height: 100dvh;
+  background: #fff;
+  overflow: clip;
+  display: grid;
+  grid-template-rows: repeat(4, min-content) auto min-content;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+h1 {
+  font-family: "Monserrat", sans-serif;
+  color: #335d92;
+  font-size: 2.5rem;
+  font-weight: 100;
+  line-height: 1.1;
+  margin: auto;
+  padding-block: 2rem;
+}
+
+h2 {
+  font-family: "Monserrat", sans-serif;
+  color: var(--primary);
+  font-weight: initial;
+  font-size: 1.3rem;
+
+  &.invisible {
+    margin: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+p {
+  margin: 0.5rem auto;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+
+  & > .icon {
+      display: flex;
+      justify-content: center;
+      height: 1.1em;
+      width: 1em;
+    }
+}
+
+#intro {
+  text-align: justify;
+  max-width: 500px;
+  margin: auto;
+
+  #contrib {
+    padding-block: 1rem;
+    font-size: 0.8rem;
+
+    summary {
+      color: var(--primary);
+      font-size: 1rem;
+    }
+  }
+}
+#country-search {
+  &.padded {
+    padding: 1rem;
+  }
+
+  & > div {
+    display: flex;
+    gap: 1rem;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.banner {
+  position: sticky;
+  top: 0;
+  background: var(--red);
+  color: white;
+  z-index: 1000;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.error {
+  color: var(--red);
+  margin-top: 0.5rem;
+}
+
+#filters {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding-bottom: 1rem;
+}
+#athletes {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--gold);
+  padding-block: 2rem;
+  box-shadow: 0px 0px 10px -5px inset;
+  overflow: clip;
+
+  & .card-container {
+    padding-block: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 0;
+    grid-template-columns: min(500px, calc(100vw - 2rem));
+  }
+}
+#popup-container {
+  position: relative;
+  z-index: 1000;
+}
+@media (min-width: 480px) {
+  h1 {
+    max-width: none;
+  }
+
+  #filters {
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 750px) {
+  main {
+    max-width: 850px
+
+  }
+
+  #athletes .card-container {
+    display: grid;
+    gap: 2rem 3rem;
+    align-items: start;
+    grid-template-columns: repeat(2, 350px);
+    grid-auto-flow: dense;
+
+    .card.col-1 {
+      grid-column: 1;
+    }
+
+    .card.col-2 {
+      grid-column: 2;
+    }
+  }
+}

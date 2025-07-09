@@ -1,0 +1,25 @@
+#logo {
+  display: flex;
+  height: 2rem;
+  width: 2.65rem;
+
+  .cls-1,
+  .cls-2 {
+    fill: var(--backdrop);
+    /* fill: black; */
+  }
+  .cls-1 {
+    opacity: 0.4;
+  }
+  .cls-2,
+  .cls-3 {
+    opacity: 0.6;
+  }
+  .cls-3 {
+    fill: none;
+    /* stroke: black; */
+    stroke: var(--backdrop);
+    stroke-miterlimit: 10;
+    stroke-width: 2px;
+  }
+}

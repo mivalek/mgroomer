@@ -1,0 +1,12 @@
+#discipline-filter {
+  display: flex;
+  gap: 0.5rem;
+
+  .checkbox-container {
+    display: flex;
+  }
+
+  input[type="checkbox"] {
+    accent-color: var(--primary);
+  }
+}

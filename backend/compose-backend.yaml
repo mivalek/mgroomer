@@ -1,0 +1,27 @@
+services:
+  backend:
+    tty: true
+    restart: always
+    image: mgroomer-backend
+    container_name: mgroomer-backend
+    build:
+      network: host
+      context: ./..
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - 8080:8080
+    env_file:
+      - ../.env.local
+    environment:
+      # - DB_ADDRESS=${DB_HOST}
+      # - DB_PORT=${DB_PORT}
+      # - STORAGE_PATH=${STORAGE_PATH}
+      - PUBLIC_HOST=http://frontend
+    networks:
+      - app-network
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - /mnt/media:/media # raspi
+      # - ..\media:/media # windows

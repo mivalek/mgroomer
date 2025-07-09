@@ -1,0 +1,19 @@
+services:
+  frontend:
+    tty: true
+    restart: always
+    image: mgroomer-frontend
+    container_name: mgroomer-frontend
+    build: 
+      network: host
+      context: ./..
+      dockerfile: ./frontend/Dockerfile
+    ports:
+      - 3000:3000
+    env_file:
+      - ../.env.local
+    networks:
+      - app-network
+    depends_on:
+      - backend
+    command: npm run start

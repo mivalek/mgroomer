@@ -1,0 +1,38 @@
+.search-container {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  position: relative;
+
+  /* #search {
+    line-height: 1.5rem;
+  } */
+
+  .icon {
+    width: 0.8rem;
+    fill: #0005;
+    position: absolute;
+    right: 4px;
+    transform: translateY(0.07rem);
+  }
+}
+
+.input-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+input[type="search"] {
+	--webkit-appearance: none;
+	appearance: none;
+  padding-right: 1.25rem;
+}
+
+label.floating {
+  position: absolute;
+  font-size: 0.7rem;
+  top: -0.6rem;
+  left: 0.25rem;
+  background: white;
+  padding-inline: 0.125rem;
+}

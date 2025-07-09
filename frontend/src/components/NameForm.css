@@ -1,0 +1,6 @@
+#display-name.alert {
+  border: solid 2px var(--red);
+}
+#display-name.success {
+  border: solid 2px var(--green);
+}

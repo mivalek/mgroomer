@@ -1,0 +1,38 @@
+services:
+  db:
+    image: mariadb:latest
+    stdin_open: true
+    tty: true
+    container_name: mgroomer-db
+    env_file:
+      - ../.env.local
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_HOST=db
+    ports:
+      - 3306:3306
+    networks:
+      - app-network
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./init.sql:/data/application/init.sql
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mariadb-admin",
+          "ping",
+          "--protocol=tcp",
+          "-h",
+          "localhost",
+          "-u",
+          "root",
+          "-p$$MYSQL_ROOT_PASSWORD",
+        ]
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    command: --init-file /data/application/init.sql

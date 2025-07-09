@@ -1,0 +1,25 @@
+.player {
+  display: flex;
+  gap: 5px;
+  width: fit-content;
+  margin: auto;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: fit-content;
+  padding: 5px;
+  background: var(--primary);
+  color: white;
+  border-radius: 5px;
+  fill: white;
+  height: 2em;
+
+  &[disabled] {
+    pointer-events: none;
+    background: #888 !important;
+  }
+}

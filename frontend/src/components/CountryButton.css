@@ -1,0 +1,16 @@
+.country-button {
+  display: flex;
+  gap: 0.25rem;
+  background: white;
+  color: black;
+  border: none;
+  box-shadow: 0 0 10px -5px black;
+  border-radius: 5px;
+  padding: 0.5rem;
+
+  .flag {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+  }
+}

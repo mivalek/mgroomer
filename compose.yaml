@@ -1,0 +1,26 @@
+include:
+  - ./db/compose-db.yaml
+  - ./backend/compose-backend.yaml
+  - ./frontend/compose-frontend.yaml
+  - ./file_server/compose-file-server.yaml
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - frontend
+      - backend
+      - file-server
+    networks:
+      - app-network
+
+networks:
+  app-network:
+volumes:
+  db-data:
