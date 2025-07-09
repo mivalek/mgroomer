@@ -67,4 +67,6 @@ Thumbs.db
 
 
 # python scripts
-db/scripts
+/db/scripts
+/db/Dockerfile
+/db/requirements.txt
