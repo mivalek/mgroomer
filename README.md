@@ -1,6 +1,6 @@
 # The Matt Groomer 🧗
 
-Community-powered pronunciation guide for IFSC athletes
+Community-powered pronunciation guide for IFSC athletes' names
 
 ## Motivation
 
