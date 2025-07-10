@@ -38,15 +38,14 @@ import { DISCIPLINES } from "~/lib/constants";
 import LetterFilter from "~/components/LetterFilter";
 import { createStore } from "solid-js/store";
 import Intro from "~/components/Intro";
+import RecordingFilter from "~/components/RecordingFilter";
 
 const getAthletes = query(async () => {
   "use server";
-  const response = await fetch(`${process.env.API}/athletes`,
-    {
-      method: "GET",
-      headers: {Authorization: process.env.API_KEY}
-    }
-  );
+  const response = await fetch(`${process.env.API}/athletes`, {
+    method: "GET",
+    headers: { Authorization: process.env.API_KEY },
+  });
   const data = (await response.json()) as TAthleteData[];
   data.sort((a, b) =>
     [a.familyNames.split(" ").at(-1), a.givenNames].join(" ") >
@@ -63,12 +62,10 @@ const getAthletes = query(async () => {
 
 const getRecordings = query(async () => {
   "use server";
-  const response = await fetch(`${process.env.API}/files`,
-    {
-      method: "GET",
-      headers: {Authorization: process.env.API_KEY}
-    }
-  );
+  const response = await fetch(`${process.env.API}/files`, {
+    method: "GET",
+    headers: { Authorization: process.env.API_KEY },
+  });
   const data = (await response.json()) as TRecording[];
   const recordings = new Map<number, TRecording[]>();
   const authors = new Map<string, number>();
@@ -119,6 +116,7 @@ export default function Home() {
   const [disciplineFilter, setDisciplineFilter] = createSignal(
     Object.keys(DISCIPLINES).map((d) => parseInt(d))
   );
+  const [recordingFilter, setRecordingFilter] = createSignal(false);
   const [letterFilter, setLetterFilter] = createSignal<string | undefined>("a");
   const [isFilteringByLetter, setIsFilteringByLetter] = createSignal(true);
   const matchingCountries = () => {
@@ -159,6 +157,7 @@ export default function Home() {
       .filter(
         (d) =>
           disciplineFilter().some((disc) => disc & d.discipline) &&
+          (!recordingFilter() || d.hasRecording) &&
           (letterFilter() && isFilteringByLetter()
             ? d.familyNames.split(" ").at(-1)?.startsWith(letterFilter()!)
             : true) &&
@@ -240,8 +239,12 @@ export default function Home() {
         <section id="filters">
           <Search searchQuery={searchQuery()} setSearchQuery={setSearchQuery} />
           <DisciplineFilter
-            filter={disciplineFilter}
+            filter={disciplineFilter()}
             setFilterFun={setDisciplineFilter}
+          />
+          <RecordingFilter
+            filter={recordingFilter()}
+            setFilterFun={setRecordingFilter}
           />
         </section>
 

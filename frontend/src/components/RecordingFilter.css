@@ -1,0 +1,33 @@
+#recording-filter {
+  display: flex;
+  min-width: fit-content;
+  padding-block: 0.5rem;
+  font-size: 0.9rem;
+
+  label {
+    background: #ccc;
+    padding: 0 0.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+
+    &.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    &:has(:focus) {
+      outline: solid 2px var(--primary);
+      outline-offset: 1px;
+    }
+
+    input[type="checkbox"] {
+      position: absolute;
+      height: 0;
+      width: 0;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
