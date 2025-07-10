@@ -21,12 +21,12 @@ body {
 }
 
 input {
-	font-family: Poppins,sans-serif;
-	border: solid 1px #888;
-	padding: .25rem .5rem;
-	background: white;
-	max-width: 12rem;
-	border-radius: 2px;
+  font-family: Poppins, sans-serif;
+  border: solid 1px #888;
+  padding: 0.25rem 0.5rem;
+  background: white;
+  max-width: 12rem;
+  border-radius: 2px;
 }
 
 section {
@@ -85,11 +85,11 @@ button {
   cursor: pointer;
 
   & > .icon {
-      display: flex;
-      justify-content: center;
-      height: 1.1em;
-      width: 1em;
-    }
+    display: flex;
+    justify-content: center;
+    height: 1.1em;
+    width: 1em;
+  }
 }
 
 #intro {
@@ -173,7 +173,9 @@ button {
   h1 {
     max-width: none;
   }
+}
 
+@media (min-width: 650px) {
   #filters {
     justify-content: space-around;
     flex-direction: row-reverse;
@@ -181,11 +183,9 @@ button {
     padding-bottom: 0;
   }
 }
-
 @media (min-width: 750px) {
   main {
-    max-width: 850px
-
+    max-width: 850px;
   }
 
   #athletes .card-container {
